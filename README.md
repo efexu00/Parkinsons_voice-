@@ -39,8 +39,8 @@ The pipeline is implemented in **Google Colab** for accessibility and reproducib
    /parkinsons_voice_msc/data/raw/
    !pip install xgboost shap plotly
    🛠️ Pipeline Steps (Notebook Sections)
-
-Data Loading & Exploration
+🛠️ Pipeline Steps (Notebook Sections)
+🔹 Data Loading & Exploration
 
 Load dataset from /data/raw/.
 
@@ -48,55 +48,63 @@ Inspect columns, datatypes, summary statistics.
 
 Generate correlation heatmap.
 
-Data Preprocessing
+🔹 Data Preprocessing
 
 Handle missing values (median imputation).
 
 Standardise features (z-score).
 
-Optional feature selection (variance threshold, high correlation filter).
+Optional: feature selection (variance threshold, correlation filter).
 
 Save cleaned dataset.
 
-Baseline Model
+🔹 Baseline Model
 
 Train Multiple Linear Regression.
 
-Evaluate using RMSE, MAE, R².
+Evaluate with RMSE, MAE, R².
 
 Record cross-validation scores.
 
-Advanced Models
+🔹 Advanced Models
 
 Train Random Forest and XGBoost regressors.
 
-Compare against baseline with same metrics.
+Compare against baseline using the same metrics.
 
-Hyperparameter Tuning
+🔹 Hyperparameter Tuning
 
-GridSearchCV for Random Forest & XGBoost.
+Apply GridSearchCV to Random Forest & XGBoost.
 
-Store tuned models.
+Save tuned models and performance table.
 
-Save final performance table.
+🔹 Explainability Analysis
 
-Explainability Analysis
-
-Apply SHAP to best model.
+Apply SHAP to the best model.
 
 Plot beeswarm & bar charts of feature importance.
 
 Save ranked features list.
 
-📈 Outputs
+📈 Key Outputs
+🔹 Predicted vs Actual UPDRS Scores
 
-Cleaned datasets → /data/cleaned/
+Scatterplots of predicted vs actual UPDRS scores show a strong positive correlation, especially for XGBoost.
 
-Trained models → /models/
+Residuals are approximately normally distributed → model predictions are stable.
 
-Evaluation results → /reports/results_summary.csv
+Prediction accuracy decreases slightly at the extremes of disease severity (model underestimates advanced Parkinson’s cases).
 
-Explainability plots → /images/
+📌 Example:
+
+
+🔹 Explainability (SHAP)
+
+SHAP analysis highlights the most predictive voice features.
+
+Provides transparent, interpretable insights into which acoustic markers drive model predictions.
+
+📌 Example:
 
 🔁 Reproducibility Notes
 
